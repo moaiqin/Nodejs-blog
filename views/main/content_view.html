@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% block main %}
+<div class="blog-item desc">
+	<h2>{{ content.title }}</h2>
+	<div class="message">
+		作者:<span>{{content.user.username}}</span>
+		时间:<span>{{content.date|date('Y-m-d H:i:s', -8*60)}}</span>
+		阅读:<span>{{content.views}}</span>
+		评论:<span>{{content.comment.length}}</span>
+	</div>
+	<p class="item-desc">{{content.content}}</p>
+</div>
+<div class="comment">
+		<div class="comment-header clear-fix">
+			<h3 class="name">评论</h3>
+			<span class="comment-total">一共有{{content.comment.length}}条评论</span>
+		</div>
+		<div>
+			<div class="input-group">
+                <input type="text" name="content"  id="content" placeholder="输入评论内容" class="form-control"/>
+                <input type="hidden" id="contentId" value="{{content._id.toString()}}">
+                <div class="input-group-btn">
+                    <button class="submit btn btn-default">评论</button>
+                </div>
+            </div>
+		</div>
+		{% if !userInfo._id%}
+		<div class="login-msg">
+			<span>你还没登陆，请先登录</span>
+		</div>
+		{%  endif %}
+		{%  if content.comment.length == 0 %}
+		<div class="no-msg">
+			还没有留言
+		</div>
+		{% endif %}
+		<ul class="comment-list">
+			<!--s {% for list in content.comment %}
+			<li>
+				<div class="clearfix">
+				<a  href="#" class="pull-left">{{list.username}}</a>
+				<span class="pull-right">{{list.postDate|date('Y-m-d H:i:s',-8*60)}}</span>
+				</div>
+				<p>{{list.content}}</p>
+			</li>
+			{% endfor%} -->
+		</ul>
+		<ul class="content-page clearfix comment-page">
+			<li class="prev">
+				
+				<a href="javascript:;">上一页</a>
+			</li>
+			<li class="next">
+				<a href="javascript:;">下一页</a>
+			</li>
+			<li class="cur-page"><span></span>/<span></span></li>
+		</ul>
+	</div>
+{% endblock %}

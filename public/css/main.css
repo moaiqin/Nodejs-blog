@@ -1,0 +1,275 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none
+}
+
+.clear-fix{
+	overflow: hidden;
+	zoom: 1;
+}
+
+.hidden{
+	display: none;
+}
+
+/* 
+  blog 头
+ */
+.blog-header{
+	height: 180px;
+}
+.blog-header .blog-log{
+	height: 80%;
+	width: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url('../image/header-log.jpg');
+}
+.blog-nav{
+	height: 20%;
+}
+.blog-nav ul{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+.blog-nav ul li{
+	height: 100%;
+	padding: 0 15px;
+	display: flex;
+	align-items: center;
+}
+.blog-nav ul li a{
+	color: #999;
+	font-size: 16px;
+	font-weight: bold;
+}
+.blog-nav ul li:hover{
+	border-bottom: 2px solid red;
+}
+.blog-nav ul li.active{
+	border-bottom: 2px solid red;
+}
+
+/* 
+   blog-content 博客内容部分
+ */
+
+.blog-content{
+	padding: 10px;
+	padding-bottom: 30px;
+	background: #eee;
+}
+
+.blog-content-left{
+	width: 59.6%;
+	float: left;
+	margin-right: 0.4%;
+}
+.blog-content-left .blog-item{
+	width: 70%;
+	float: right;
+	box-sizing: border-box;
+	padding: 0  20px 15px 20px;
+	margin-top: 15px;
+	background: #fff;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.blog-item h2{
+	height: 30px;
+	line-height: 30px;
+	color: #666;
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+.message{
+	font-size: 12px;
+	color: #999;
+	padding-right: 30px;
+}
+.blog-item span{
+	color: #2eaa2199;
+}
+.all-acticle,.item-desc{
+	text-indent: 40px;
+	text-align: left;
+	padding: 10px 0 15px 0;
+	font-size: 13px;
+	color: #666;
+}
+.all-acticle{
+	padding: 0;
+}
+.all-acticle a{
+	border: 0;
+	padding: 2px 6px;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 12px;
+	background:#de9b12; 
+}
+
+.blog-content-right{
+	float: left;
+	width: 39%;
+	margin-left: 1%;
+	box-sizing: border-box;
+}
+
+.user-action{
+	float: left;
+	width: 52%;
+	background: #fff;
+	margin-top: 15px;
+	box-sizing: border-box;
+	padding: 10px;
+	color: #666;
+}
+.user-action h4{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: normal;
+	border-bottom: 1px solid #ccc;
+	color: #666;
+}
+.user-action h4 span{
+	height: 100%;
+	display: inline-block;
+	border-bottom: 1px solid red;
+}
+.username{
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+}
+.user-action p{
+	font-size: 12px;
+
+}
+.user-action .logout{
+	font-size: 12px;
+	display: inline-block;
+	padding-top: 5px;
+}
+.form-ul{
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px 0 0 0;
+}
+.form-ul li{
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	box-sizing: border-box;
+}
+.form-ul li input{
+	border: 1px solid #ccc;
+	font-size: 12px;
+	height: 20px;
+	line-height: 15px;
+	text-indent: 6px;
+}
+.form-ul li:last-child button:focus,.form-ul li input:focus{
+	outline: none;
+}
+
+.form-ul li:last-child button{
+	margin-right: 30px;
+	width: 30%;
+	border: 0;
+	color: #fff;
+	background:#de9b12; 
+}
+.shequ{
+	padding-top: 10px;
+}
+.shequ li{
+	font-size: 13px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.register-message,.login-message{
+	color: red;
+	font-size: 13px;
+}
+
+.content-page, .comment{
+	width: 70%;
+	float: right;
+	box-sizing: border-box;
+	padding: 0  20px 15px 20px;
+	margin-top: 15px;
+	background: #fff;
+	padding-top: 20px;
+}
+.content-page li{
+	text-align: center;
+}
+.content-page .prev{
+	float: left;
+	font-size: 13px;
+}
+
+.content-page .next{
+	float: right;
+	font-size: 13px;
+}
+
+.comment-total{
+	line-height: 1;
+	float: right;
+	font-size: 12px;
+	color: #666;
+	margin-bottom: 25px;
+}
+.name{
+	float: left;
+	font-size: 15px;
+	color: #333;
+	margin: 0;
+}
+.login-msg,.no-msg{
+	background: #ff750099;
+	text-align: center;
+	padding: 2px;
+	font-size: 12px;
+	margin-top: 10px;
+}
+.login-msg span{
+	color: #fff;
+	line-height: 1;
+}
+.no-msg{
+	background: #fff;
+}
+.comment-list{
+	padding: 15px 10px 0 10px;
+}
+.comment-list li p{
+	font-size: 12px;
+	padding: 6px 0;
+	color: #666;
+}
+.comment-list li span{
+	font-size: 11px;
+	color: #999;
+}
+.comment-list li{
+	padding:-top 10px;
+}
+.comment-page{
+	width: 100%;
+	margin: 0;
+}

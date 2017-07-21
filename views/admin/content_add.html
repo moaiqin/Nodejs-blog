@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+<ol class="breadcrumb">
+	<li><a href="/admin">后台首页</a></li>
+	<li><a href="/admin/content">内容首页</a></li>
+	<li><span>内容添加</span></li>
+</ol>
+<h6>添加文章</h6>
+<div class="container">
+	<form class="form" method="post">
+		<div class="form-group">
+			<label>分类：</label>
+			{% if cates %}
+			<select name="category" id="category">
+				{% for cate in cates %}
+				<option value="{{cate._id.toString()}}">{{cate.name}}</option>
+				{% endfor %}
+			</select>
+			{% else %}
+			<a href="/admin/category/add">添加分类</a>
+			{% endif %}
+		</div>
+		<div class="form-group">
+			<label for="title">内容标题：</label>
+			<input type="text" id="title" class="form-control" placeholder="输入标题" name="title" >
+		</div>
+		<div class="form-group">
+			<label for="description">简介：</label>
+			<textarea type="text" id="description" name="description" placeholder="输入简介" class="form-control" rows="3"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="content">内容：</label>
+			<textarea type="text" id="content" name="content" placeholder="输入内容" class="form-control" rows="6"></textarea>
+		</div>
+		<input type="submit" value="提交" class="btn btn-primary">
+	</form>
+</div>
+{% endblock %}

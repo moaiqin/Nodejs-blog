@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+{% for content in contents %}
+<div class="blog-item">
+	<h2>{{ content.title }}</h2>
+	<div class="message">
+		作者:<span>{{content.user.username}}</span>
+		时间:<span>{{content.date|date('Y-m-d H:i:s', -8*60)}}</span>
+		阅读:<span>{{content.views}}</span>
+		评论:<span>{{content.comment.length}}</span>
+	</div>
+	<p class="item-desc">{{content.description}}</p>
+	<div class="all-acticle">
+		<a href="/view?content={{content._id.toString()}}">阅读全文</a>
+	</div>
+</div>
+{% endfor %}
+<ul class="content-page clearfix">
+	<li class="prev">
+		{% if page ==1 %}
+		<span>没有上一页了</span>
+		{% else %}
+		<a href="/?page={{page-1}}&category={{category}}">上一页</a>
+		{% endif%}
+	</li>
+	<li class="next">
+		{% if page >= totalPage %}
+		<span>没有下一页了</span>
+		{% else %}
+		<a href="/?page={{page+1}}&category={{category}}">下一页</a>
+		{% endif%}
+	</li>
+	{% if totalPage >0 %}
+	<li><span>{{page}}</span>/<span>{{totalPage}}</span></li>
+	{% endif %}
+</ul>
+{% endblock %}

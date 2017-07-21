@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>博客</title>
+	<link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="public/css/main.css">
+	<script type="text/javascript" src="public/js/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="public/js/index.js"></script>
+</head>
+<body>
+	<div class="blog-header">
+		<div class="blog-log"></div>
+		<div class="blog-nav">
+			<ul>
+			    {%if category%}
+			    <li><a href="/">首页</a></li>
+			    {% else %}
+			    <li class="active"><a href="/">首页</a></li>
+			    {% endif %}
+				{% for cate in cates %}
+				{% if category == cate._id %}
+				<li class="active"><a href="/?category={{cate._id.toString()}}">{{cate.name}}</a></li>
+				{% else %}
+				<li><a href="/?category={{cate._id.toString()}}">{{cate.name}}</a></li>
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div class="blog-content clear-fix">
+		<div class="blog-content-left clear-fix">
+			{% block main %}
+			{% endblock %}
+		</div>
+		<div class="blog-content-right">  
+		    {% if userInfo._id %}
+			<div id="user-info" class="user-action">
+				<h4>
+					<span>用户信息</span>
+				</h4>
+				<span class="username"> {{userInfo.username}} </span>
+				{% if userInfo.isAdmin %}
+				<p><span>你好,你是管理员</span><a href="/admin">点击进入管理</a></p>
+				{% else %}
+				<p><span>你好,欢迎光临我的博客</span></p>
+				{% endif %}
+				<a href="javascript:;" class="logout">退出</a>
+			</div>
+			{% else %}
+			<div id="login" class="user-action">
+				<h4><span>用户登陆</span></h4>
+					<ul class="form-ul login-ul">
+						<li>
+							<label>用户名:</label>
+							<input type="text" name="username" placeholder="输入用户名">
+						</li>
+						<li>
+							<label>密　码:</label>
+							<input type="password" name="password" placeholder="输入密码">
+						</li>
+						<li>
+							还没有注册？<a href="javascript:;">点击注册</a>
+						</li>
+						<p class="login-message"></p>
+						<li>
+							<button>登陆</button>
+						</li>
+					</ul>
+			</div>
+			{% endif %}
+			<div id="logout" class="user-action hidden">
+				<h4><span>用户注册</span></h4>
+					<ul class="form-ul login-ul">
+						<li>
+							<label>用 户 名:</label>
+							<input type="text" name="username" placeholder="输入用户名">
+						</li>
+						<li>
+							<label>密　　码:</label>
+							<input type="password" name="password" placeholder="输入密码">
+						</li>
+						<li>
+							<label>确认密码:</label>
+							<input type="password" name="password2" placeholder="确认密码">
+						</li>
+						<li>
+							已经注册？<a href="javascript:;">点击登陆</a>
+						</li>
+						<p class="register-message"></p>
+						<li>
+							<button>注册</button>
+						</li>
+					</ul>
+			</div>
+			<div class="user-action">
+				<h4><span>社区</span></h4>
+				<ul class="shequ">
+					<li><a href="#">知乎</a></li>
+					<li><a href="#">都与</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

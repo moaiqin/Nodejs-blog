@@ -1,0 +1,28 @@
+{% extends 'layout.html'%}
+{% block main %}
+<ol class="breadcrumb">
+	<li><a href="/admin">后台首页</a></li>
+	<li><a href="/admin/category">分类管理</a></li>
+	<li><span>分类编辑</span></li>
+</ol>
+<table class="table table-hover table-bordered">
+	<tr>
+		<th>ID</th>
+		<th>类名</th>
+		<th>编辑</th>
+	</tr>
+	<tr>
+		<form method="post">
+		    <td>
+		    	{{cate._id.toString()}}
+		    </td>
+			<td>
+				<input type="text" value="{{cate.name}}" name="catename" placeholder="输入类名" />
+			</td>
+			<td>
+				<input type="submit" value="提交" class="btn btn-primary">
+			</td>
+		</form>
+	</tr>
+</table>
+{% endblock%}
